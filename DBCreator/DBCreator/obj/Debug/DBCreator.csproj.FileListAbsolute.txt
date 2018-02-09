@@ -1,0 +1,9 @@
+C:\Users\itapi\source\repos\DBCreator\DBCreator\bin\Debug\DBCreator.exe.config
+C:\Users\itapi\source\repos\DBCreator\DBCreator\bin\Debug\DBCreator.exe
+C:\Users\itapi\source\repos\DBCreator\DBCreator\bin\Debug\DBCreator.pdb
+C:\Users\itapi\source\repos\DBCreator\DBCreator\obj\Debug\DBCreator.csprojResolveAssemblyReference.cache
+C:\Users\itapi\source\repos\DBCreator\DBCreator\obj\Debug\DBCreator.csproj.CoreCompileInputs.cache
+C:\Users\itapi\source\repos\DBCreator\DBCreator\obj\Debug\DBCreator.exe
+C:\Users\itapi\source\repos\DBCreator\DBCreator\obj\Debug\DBCreator.pdb
+C:\Users\itapi\source\repos\DBCreator\DBCreator\bin\Debug\DataAccesEF.dll
+C:\Users\itapi\source\repos\DBCreator\DBCreator\bin\Debug\DataAccesEF.pdb

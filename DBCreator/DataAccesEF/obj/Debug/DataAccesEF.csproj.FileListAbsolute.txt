@@ -1,0 +1,6 @@
+C:\Users\itapi\source\repos\DBCreator\DataAccesEF\bin\Debug\DataAccesEF.dll
+C:\Users\itapi\source\repos\DBCreator\DataAccesEF\bin\Debug\DataAccesEF.pdb
+C:\Users\itapi\source\repos\DBCreator\DataAccesEF\obj\Debug\DataAccesEF.csprojResolveAssemblyReference.cache
+C:\Users\itapi\source\repos\DBCreator\DataAccesEF\obj\Debug\DataAccesEF.csproj.CoreCompileInputs.cache
+C:\Users\itapi\source\repos\DBCreator\DataAccesEF\obj\Debug\DataAccesEF.dll
+C:\Users\itapi\source\repos\DBCreator\DataAccesEF\obj\Debug\DataAccesEF.pdb
