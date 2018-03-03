@@ -7,6 +7,7 @@ using System.Web.Http;
 using Softtek.Academy2018.ToDoListApp.Business.Contracts;
 using Softtek.Academy2018.ToDoListApp.Business.Implementations;
 using Softtek.Academy2018.ToDoListApp.Domain.Model;
+using Softtek.Academy2018.ToDoListApp.WebAPI.Models;
 
 namespace Softtek.Academy2018.ToDoListApp.WebAPI.Controllers
 {
@@ -125,21 +126,49 @@ namespace Softtek.Academy2018.ToDoListApp.WebAPI.Controllers
             return Ok(payload);
         }
 
+        [Route("items/status/all")]
+        [HttpGet]
+        public IHttpActionResult GetAll()
+        {
+            ICollection<Item> result = _ItemService.GetAll();
+            if (result == null)  return BadRequest("No items match the search parameter");
+            if (result.Count == 0) return BadRequest("No items match the search parameter");
+
+            ICollection<ItemDTO> itemDTOList = new List<ItemDTO>();
+
+            foreach (Item item in result)
+            {
+                itemDTOList.Add(new ItemDTO
+                {
+                    Title = item.Title,
+                    Description = item.Description,
+                    DueDate = item.DueDate,
+                    PriorityId = item.PriorityId
+                });
+            }
+
+            var payload = new
+            {
+                resultados = itemDTOList
+            };
+            return Ok(payload);
+        }
+
         [Route("items/Id/{Id:int}")]
         [HttpGet]
         public IHttpActionResult GetById([FromUri] int Id)
         {
             Item resultado = _ItemService.Get(Id);
             if (resultado == null)
-                return BadRequest("No items match the search parameter");           
-            ItemDTO salida = new ItemDTO();            
-                salida=new ItemDTO
-                {
-                    Title = resultado.Title,
-                    Description = resultado.Description,
-                    DueDate = resultado.DueDate,
-                    PriorityId = resultado.PriorityId
-                };            
+                return BadRequest("No items match the search parameter");
+            ItemDTO salida = new ItemDTO();
+            salida = new ItemDTO
+            {
+                Title = resultado.Title,
+                Description = resultado.Description,
+                DueDate = resultado.DueDate,
+                PriorityId = resultado.PriorityId
+            };
             var payload = new
             {
                 resultado = salida
@@ -178,7 +207,7 @@ namespace Softtek.Academy2018.ToDoListApp.WebAPI.Controllers
 
         [Route("item/{itemId:int}")]
         [HttpDelete]
-        public IHttpActionResult Delete([FromUri]int  itemId)
+        public IHttpActionResult Delete([FromUri]int itemId)
         {
             if (!_ItemService.Delete(itemId))
                 return BadRequest("Unable to delete subject");
@@ -186,7 +215,7 @@ namespace Softtek.Academy2018.ToDoListApp.WebAPI.Controllers
             var payload = new
             {
                 ItemId = itemId,
-                message= "Target (soft)Deleted"
+                message = "Target (soft)Deleted"
 
             };
             return Ok(payload);
@@ -195,22 +224,4 @@ namespace Softtek.Academy2018.ToDoListApp.WebAPI.Controllers
 
     }
 
-    public class ItemDTO
-    {
-        public string Title { get; set; }
-
-        public string Description { get; set; }
-
-        public DateTime DueDate { get; set; }
-
-        public int PriorityId { get; set; }
-    }
-    public class DateDto
-    {
-        public DateTime DueDate { get; set; }
-    }
-    public class NameDTO
-    {
-        public string Title { get; set; }
-    }
 }

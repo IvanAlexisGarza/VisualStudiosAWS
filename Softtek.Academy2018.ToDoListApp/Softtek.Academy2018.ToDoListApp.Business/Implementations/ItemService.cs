@@ -48,6 +48,11 @@ namespace Softtek.Academy2018.ToDoListApp.Business.Implementations
             return itemRepo.Get(Id);
         }
 
+        public ICollection<Item> GetAll()
+        {
+            return itemRepo.GetAll();
+        }
+
         public ICollection<Item> GetByStatus(int stat)
         {
             return itemRepo.GetByStatus(stat);

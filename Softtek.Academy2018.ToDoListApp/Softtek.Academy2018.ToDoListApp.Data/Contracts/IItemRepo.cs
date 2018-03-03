@@ -14,6 +14,7 @@ namespace Softtek.Academy2018.ToDoListApp.Data.Contracts
         bool Delete(int Id);
         ICollection<Item> GetByStatus(int stat);
         ICollection<Item> GetByTittle(string tittle);
+        ICollection<Item> GetAll();
         bool AsignTag(int ItemId,int TagId);
         int CountTags(int itemId);
         bool AsignStat(int item,int stat);

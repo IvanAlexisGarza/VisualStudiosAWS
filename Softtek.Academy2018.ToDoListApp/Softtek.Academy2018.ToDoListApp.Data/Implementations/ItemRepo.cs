@@ -11,6 +11,15 @@ namespace Softtek.Academy2018.ToDoListApp.Data.Implementations
 {
     public class ItemRepo : IItemRepo
     {
+        public ICollection<Item> GetAll()
+        {
+            using (var context = new ToDoListContext())
+            {
+                ICollection<Item> result = context.Items.ToList();
+                return result;
+            }
+        }
+
         public int Add(Item item)
         {
             using (var context= new ToDoListContext())

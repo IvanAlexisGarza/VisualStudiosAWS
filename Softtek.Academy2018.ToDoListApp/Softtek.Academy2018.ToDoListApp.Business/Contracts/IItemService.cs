@@ -17,6 +17,6 @@ namespace Softtek.Academy2018.ToDoListApp.Business.Contracts
         bool AsignTag(int ItemId, int TagId);
         bool AsignStat(int ItemId, int stat);
         Item Get(int Id);
-
+        ICollection<Item> GetAll();
     }
 }
