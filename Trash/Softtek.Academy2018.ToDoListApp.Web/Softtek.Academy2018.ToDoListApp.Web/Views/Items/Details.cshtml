@@ -1,0 +1,25 @@
+﻿@model Softtek.Academy2018.ToDoListApp.Web.ViewModels.ItemFormViewModel
+
+@using Softtek.Academy2018.ToDoListApp.Web.Models
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+<ul>
+    @*<li> <strong> Genre:</strong> @Model.Status.Name</li>*@
+
+    <li>
+        <strong>Do you want to detele this duede?</strong>
+        @Html.Partial("_IndividualButtonPartial", new IndividualButtonPartial
+   {
+       Action = "Delete",
+       ButtonType = "btn-danger",
+       GlyphIcon = "trash",
+       CosaId = Model.Id
+
+   })
+    </li>
+</ul>
